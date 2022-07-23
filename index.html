@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racing car</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .wrap{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/01073865290819.5d61d475f0072.jpg);
+            background-size: cover;
+            align-items: center;
+        }
+        .head{
+            width: 100%;
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding: 0 15px;
+        }
+        .box{
+            width: 280px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            background-color: black;
+            border: 4px solid white;
+            color: white;
+            font-size: 20px;
+            font-family: monospace;
+        }
+        .set{
+            width: 50px;
+            height: 50px;
+            background-image: url(set.png);
+            background-size: cover;
+            animation: sett 2s infinite linear;
+            cursor: pointer;
+        }
+        @keyframes sett {
+            100%{transform: rotate(360deg);}
+        }
+        .h{
+            width: 480px;
+            height: 50px;
+            font-size: 26px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-family: monospace;
+
+        }
+        .road{
+            margin-top: 60px;
+        }
+        .menag{
+            width: 20%;
+            height: 100%;
+            border: 4px solid black;
+            border-radius: 20px;
+            margin-top: 0px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-left: 5px;
+        }
+        .p{
+            width: 33.3%;
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .p1{
+            justify-content: flex-start;
+        }
+        .p3{
+            justify-content: flex-end;
+        }
+        .set_car{
+            width: 100%;
+            height: 180px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .f2c{
+            width: 40%;
+            height: 100%;
+            background-color: blue;
+            border-radius: 20px;
+            background-color: white;
+            opacity: 0.9;
+            border: 4px solid black;
+            display: none;
+        }
+        .l2c{
+            width: 40%;
+            height: 100%;
+            background-color: palegreen;
+            border-radius: 20px;
+            background-color: white;
+            opacity: 0.9;
+            border: 4px solid black;
+            display: none;
+        }
+        .row{
+            width: 100%;
+            height: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .s_day{
+            width: 35px;
+            height: 35px;
+            background-image: url(s_day.png);
+            background-size: cover;            
+        }
+        .r_day{
+            width: 35px;
+            height: 35px;
+            background-image: url(r_day.png);
+            background-size: cover;
+            cursor: pointer;
+        }
+        .s1{
+            transform: rotate(90deg);
+            cursor: pointer;
+        }
+        .s2{
+            cursor: pointer;
+        }
+        .s3{
+            transform: rotate(180deg);
+            cursor: pointer;
+        }
+        .s4{
+            transform: rotate(270deg);
+            cursor: pointer;
+        }
+        .car_light{
+            background-image: url(car-light.png);
+            background-size: cover;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+        .alert{
+            width: 40px;
+            height: 40px;
+            background-image: url(alert.png);
+            background-size: cover;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .change{
+            background-image: url(sedan.png);
+            background-size: cover;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .r2{
+            width: 50%;
+            justify-content: space-between;
+        }
+        .settings{
+            width: 370px;
+            height: 200px;
+            background-color: white;
+            opacity: 0.8;
+            position: absolute;
+            border-radius: 20px;
+            border: 4px solid black;
+            margin-left:1030px;
+            margin-top: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+        .d_n{
+            width: 70px;
+            height: 70px;
+            background-image: url(sunny.png);
+            background-size: cover;
+            cursor: pointer;
+        }
+        .rain{
+            width: 70px;
+            height: 70px;
+            background-image: url(raining.png);
+            background-size: cover;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        .ok{
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: monospace;
+            background-color: black;
+            border-radius: 50%;
+            color: white;
+            font-size: 25px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        .d_n2{
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-image: url(moon.png);
+            background-size: cover;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        .chose_car{
+            width: 500px;
+            height: 300px;
+            border-radius: 25px;
+            position: absolute;
+            border: 4px solid black;
+            background-color: white;
+            margin-top: 120px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #chose_car{
+            filter: blur(0px);
+        }
+        .row_car{
+            width: 100%;
+            height: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-around;
+
+        }
+        .b_c{
+            width: 43%;
+            height: 90%;
+            border-radius: 15px;
+            border: 3px solid black;
+            cursor: pointer;
+        }
+        .btn_start{
+            width: 35%;
+            height: 70%;
+            background-color: black;
+            border-radius: 25px;
+            color: white;
+            font-family: monospace;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .box_car1{
+            background-image: url(c1.png);
+            background-size: cover;
+            cursor: pointer;
+        }
+        .box_car2{
+            background-image: url(c2.png);
+            background-size: cover;
+            cursor: pointer;
+        }
+        .box_car3{
+            background-image: url(c3.png);
+            background-size: cover;
+            cursor: pointer;
+        }
+        .box_car4{
+            background-image: url(c4.png);
+            background-size: cover;
+            cursor: pointer;
+        }
+        
+        .img_p{
+            width: 100%;
+            height: 62vh;
+        }
+        .car_p{
+            width: 100%;
+            height: 26vh;
+            position:absolute;
+            margin-top: -205px;
+            border: 3px solid black;
+        }
+        .car{
+            transition: 0.5s
+        }
+        .power{
+            height: 100%;
+            width: 12%;
+            border: 4px solid black;
+            border-radius: 20px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .c_power{
+            height: 100%;
+            width: 12%;
+            border: 4px solid black;
+            border-radius: 20px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-left: 5px;
+        }
+        .v_power{
+            width: 100%;
+            height: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-around;           
+        }
+        .cp{
+            width: 26px;
+            height: 26px;
+            background-color: black;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .engine{
+            width: 45px;
+            height: 45px;
+        }
+        .l_p{
+            width: 45%;
+            height: 90%;
+            border-radius: 18px;
+            background-color: #fff;
+            box-sizing: border-box;
+            border: 3px solid black;
+            display: flex;
+            flex-direction: column;
+
+        }
+        .bb{
+            width: 100%;
+            height: 20%;
+        }
+        
+        .b1{
+            border-bottom-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+            background-color: #6DCBFF;
+            transition: 0.7s;
+        }
+        .b2{
+            background-color: #00CA14;
+            background-color: #fff;
+            transition: 0.7s;
+        }
+        .b3{
+            background-color: #FF9900;
+            background-color: #fff;
+            transition: 0.7s;
+        }
+        .b4{
+            background-color: #FF0000;
+            background-color: #fff;
+            transition: 0.7s;
+        }
+        .b5{
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            background-color: #8B0000;
+            background-color: #fff;
+            transition: 0.7s;
+        }
+        .savebtn{
+            width: 110px;
+            height: 30px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: monospace;
+            border-radius: 20px;
+            border: 2px solid black;
+            margin-top: 10px;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .savebtn:hover{
+            background-color: rgb(66, 66, 255);
+            color: white;
+            transition: 0.5s;
+        }
+        .ch_sp{
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .h3{
+            transform: rotate(-90deg);
+            font-size: 20px;
+        }
+        .h3_1{
+            transform: rotate(90deg);
+            font-size: 20px;
+        }
+        
+        
+
+
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="wrap" id="wrap">
+        <!-- header -->
+        <div class="head" id="head">
+          <div class="p p1">
+            <div class="h" id="h">Your car: <span id="car_name"> Mercedes-Maybach s550</span></div>
+          </div>
+          <div class="p">
+            <div class="box" id="box">
+                Luxury riding
+            </div>
+          </div>
+          <div class="p p3">
+                <div class="set" id="set"></div>
+          </div>
+        </div>
+        <div class="settings" id="settings">
+            <div class="d_n" id="d_n"></div>
+            <div class="d_n2" id="d_n2"></div>
+            <div class="rain" id="rain"></div>
+            <div class="ok" id="ok">OK</div>
+
+        </div>
+        <!-- header -->
+
+        <!-- main -->
+<div class="img_p">
+        <img src="main_day.png" class="road" id="road" alt="">
+<div class="car_p">
+        <img src="car2.png" class="car" id="car" alt="">
+</div>
+</div>
+<div class="set_car" id="set_car">
+    <div class="power" id="power">
+        <div class="h3">power</div>
+        <div class="l_p" id="l_p">
+            
+            <div class="b5 bb" id="b5"></div>
+            <div class="b4 bb" id="b4"></div>
+            <div class="b3 bb" id="b3"></div>
+            <div class="b2 bb" id="b2"></div>
+            <div class="b1 bb" id="b1"></div>
+            
+        </div>
+<div class="h3_1">power</div>
+    </div>
+<div class="menag" id="menag">
+    <div class="row ">
+        <div class="s_day s1" id="s1"></div>
+    </div>
+    <div class="row r2">
+        <div class="s_day s2" id="s2"></div>
+        <div class="r_day" id="rv"></div>
+        <div class="s_day s3" id="s3"></div>
+    </div>
+    <div class="row">
+        <div class="s_day s4" id="s4"></div>
+    </div>
+    <div class="row">
+        <div class="car_light" id="car_light"></div>
+        <div class="alert" id="alertc"></div>
+        <div class="change" id="change"></div>
+    </div>
+</div>
+<div class="c_power">
+    <img src="engine.png" class="engine" alt="">
+  
+<div class="v_power">
+        <div class="cp" id="cp1">1</div>
+        <div class="cp" id="cp2">2</div>
+        <div class="cp" id="cp3">3</div>
+        <div class="cp" id="cp4">4</div>
+        <div class="cp" id="cp5">5</div>
+    </div>
+    <div class="savebtn" id="savebtn">Change speed</div>
+</div>
+</div>
+
+<div class="chose_car" id="chose_car">
+    <div class="row_car">
+        <div class="box_car1 b_c" id="box_car1"></div>
+        <div class="box_car2 b_c" id="box_car2"></div>
+    </div>
+    <div class="row_car">
+        <div class="box_car3 b_c" id="box_car3"></div>
+        <div class="box_car4 b_c" id="box_car4" ></div>
+    </div>
+    <div class="row_car">
+        <div class="btn_start" id="btn_start">Lets gooo!</div>
+    </div>
+</div>
+
+
+        </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
